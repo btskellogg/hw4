@@ -1,5 +1,13 @@
 class PostsController < ApplicationController
 
+  def show
+    @post = Post.find_by({ "id" => params["id"] })
+    @user = User.find_by({ "id" => @User["user_id"] })
+    @posts = post.where({ "user_id" => @current_user["id"], "user_id" => session["user_id"] })
+    @Post = Post.new
+    @post["user_id"] = @user["id"]
+  end
+
   def new
     if @current_user
     @post = Post.new
