@@ -27,6 +27,6 @@ test:
 production:
    <<: *default
    adapter: postgresql
-   database: kwitter_production
-   username: kwitter
-   password: <%= ENV["KWITTER_DATABASE_PASSWORD"] %>
+   database: tacostagram_production
+   username: tacostagram
+   password: <%= ENV["TACOSTAGRAM_DATABASE_PASSWORD"] %>

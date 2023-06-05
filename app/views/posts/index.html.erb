@@ -1,14 +1,23 @@
-<% if @current_user%>
-
-  <h1>Places</h1>
-
-<ul>
-  <% for post in @posts %>
-    <li><a href="/places/<%= user_id["id"] %>"><%= post["user_id"] %></a></li>
-  <% end %>
-</ul>
-
-<p>
-  <a href="/places"> Places</a>
-</p>
+<div class="container">
+  <div class="row">
+    <% @posts.each_slice(3) do |slice| %>
+      <% slice.each do |post| %>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text"><%= post.description %></p>
+              <p class="card-text"><small class="text-muted"><%= post.posted_on %></small></p>
+              <% if post.uploaded_image.attached? %>
+                <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+              <% else %>
+                <img src="<%= post["image"] %>" class="img-fluid">
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
