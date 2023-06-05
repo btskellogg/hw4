@@ -1,0 +1,14 @@
+<% if @current_user%>
+
+  <h1>Places</h1>
+
+<ul>
+  <% for post in @posts %>
+    <li><a href="/places/<%= user_id["id"] %>"><%= post["user_id"] %></a></li>
+  <% end %>
+</ul>
+
+<p>
+  <a href="/places"> Places</a>
+</p>
+
