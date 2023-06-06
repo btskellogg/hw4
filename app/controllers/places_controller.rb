@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
     end
   end
 
+  #Below creates connection between user, places, and their posts so
   def show
     if @current_user
     @place = Place.find_by({ "id" => params["id"] })

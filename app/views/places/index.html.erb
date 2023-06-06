@@ -2,25 +2,27 @@
 
   <h1>Places</h1>
 
-<ul>
+<ul style="list-style-type: none; margin-left: -28px;">
   <% for place in @places %>
     <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
   <% end %>
 </ul>
 
 <p>
-  <a href="/places/new">New place</a>
+  <a href="/places/new">
+  <button type="button" class="btn btn-primary">New Place</button>
 </p>
 
 <% else %>
-  <h1>Please log in</h1> 
+  <h1>Please log in</h1>
+  <div class="p-2"> 
   <a href="/login">
     <button type="button" class="btn btn-primary">Login</button>
   </a>
-  <br> </br>
-  <div>
+  </div class="p-2">
+  <div class="p-2">
   <a href="/users/new">
     <button type="button" class="btn btn-primary">New User </button>
   </a>
-  </div>
+  </div class="p-2">
 <% end %>
