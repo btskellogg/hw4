@@ -2,13 +2,17 @@ class PlacesController < ApplicationController
 
   def index
     if @current_user
-    @places = Place.all     
+    @places = Place.all 
     end
   end
 
   def show
+    if @current_user
     @place = Place.find_by({ "id" => params["id"] })
     @posts = Post.where({ "place_id" => @place["id"], "user_id" => @current_user["id"] })
+    else
+    redirect_to "/login"  
+    end
   end
 
   def new
